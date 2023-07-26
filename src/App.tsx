@@ -1,7 +1,11 @@
+import Index from "./pages/main";
+import GlobalStyle from "./styles/global";
+
 function App() {
   return (
     <>
-      <h1>APP 2</h1>
+      <GlobalStyle />
+      <Index />
     </>
   );
 }
