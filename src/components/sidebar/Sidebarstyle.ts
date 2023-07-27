@@ -4,8 +4,84 @@ export const SidebarContainer = styled.aside`
   background-color: #E03131;
   width: 7.75rem;
   padding: 2rem 0;
-  overflow: hidden;
+  /* overflow: hidden;  */
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  button {
+    background: none;
+    background-color: green;  /* apagar */
+    border: none;
+    width: 100%;
+  }
+
+  nav {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    background-color: blue; /* apagar */
+
+    ul {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+
+    }
+
+    li {
+      background-color:  violet; /* apagar */
+      a {
+        width: fit-content;
+        position: relative;
+        padding: 0 1.875rem 0;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        svg {
+          background-color: black; /* apagar */
+          fill: white;
+          width: 4rem;
+          height: 4rem;
+          transition: fill 0.3s;
+        }
+
+        span {
+          font-size: 1rem;
+          font-weight: 500;
+          transition: color 0.3s;
+        }
+
+        &.active {
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            transform: translate(-50%);
+
+            background-color: #FCC419;
+            width: 7px;
+            height: calc(100% + 0.5rem);
+
+            border-radius: 0 5px 5px 0;
+          }
+
+          svg {
+            fill: #FCC419;;
+          }
+
+          span {
+            color: #FCC419
+          }
+
+        }
+
+      }
+
+    }
+
+  }
 `
