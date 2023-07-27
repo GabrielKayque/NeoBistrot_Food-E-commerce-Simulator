@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { SidebarContainer } from "./Sidebarstyle";
 
 import { ReactComponent as BurguerIcon } from "../../assets/burger.svg";
@@ -8,16 +10,22 @@ import { ReactComponent as SodaIcon } from "../../assets/soda.svg";
 import menuImg from "../../assets/menu.svg";
 
 export default function Sidebar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    console.log(menuOpen);
+  };
   return (
     <>
-      <SidebarContainer>
-        <button>
+      <SidebarContainer isMenuOpen={menuOpen}>
+        <button onClick={toggleMenu}>
           <img src={menuImg} alt="Abrir e fechar o menu" />
         </button>
         <nav>
           <ul>
             <li>
-              <a href="#" className="active">
+              <a href="#">
                 <BurguerIcon />
                 <span>Hambúrgueres</span>
               </a>
@@ -29,7 +37,7 @@ export default function Sidebar() {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#" className="active">
                 <IceCreamIcon />
                 <span>Sobremesas</span>
               </a>

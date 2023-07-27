@@ -1,17 +1,26 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const SidebarContainer = styled.aside`
+interface SidebarContainerProps {
+  isMenuOpen: boolean;
+}
+
+export const SidebarContainer = styled.aside<SidebarContainerProps>`
   background-color: #E03131;
-  width: 7.75rem;
+
+  ${({ isMenuOpen }) => isMenuOpen
+    ? css`width:16rem`
+    : css`width:7.75rem`
+  };
+
   padding: 2rem 0;
-  /* overflow: hidden;  */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: width 0.3s;
 
   button {
     background: none;
-    background-color: green;  /* apagar */
     border: none;
     width: 100%;
   }
@@ -20,7 +29,6 @@ export const SidebarContainer = styled.aside`
     flex: 1;
     width: 100%;
     height: 100%;
-    background-color: blue; /* apagar */
 
     ul {
       height: 100%;
@@ -32,7 +40,6 @@ export const SidebarContainer = styled.aside`
     }
 
     li {
-      background-color:  violet; /* apagar */
       a {
         width: fit-content;
         position: relative;
@@ -42,7 +49,6 @@ export const SidebarContainer = styled.aside`
         gap: 2rem;
 
         svg {
-          background-color: black; /* apagar */
           fill: white;
           width: 4rem;
           height: 4rem;
@@ -83,5 +89,50 @@ export const SidebarContainer = styled.aside`
 
     }
 
+  }
+
+  @media (max-width: 720px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+
+    width: 100%;
+    height: 5rem;
+    overflow-y: auto;
+    padding: 0;
+
+    button {
+      display: none;
+    }
+
+    nav {
+      ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      li {
+        a {
+          flex-direction: column;
+          padding: 0;
+
+          svg {
+            width: 3.25rem;
+            height: 3.25rem;
+          }
+
+          span {
+            display:none;
+          }
+        }
+
+        a::after {
+          display: none;
+        }
+
+      }
+    }
   }
 `
