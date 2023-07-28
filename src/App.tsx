@@ -1,11 +1,14 @@
-import Index from "./pages/main";
 import GlobalStyle from "./styles/global";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "./routes";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Index />
+      <BrowserRouter>
+        <GlobalStyle />
+        <AppRoutes />
+      </BrowserRouter>
     </>
   );
 }

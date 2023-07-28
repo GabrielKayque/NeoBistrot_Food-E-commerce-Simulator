@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: gray;
+    background: #141518;
     color: white;
     margin: 0;
   }

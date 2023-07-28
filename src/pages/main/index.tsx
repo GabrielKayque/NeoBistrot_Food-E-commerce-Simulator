@@ -1,11 +1,14 @@
 import Sidebar from "../../components/sidebar/Sidebar";
 import { Container } from "./styles";
+import { Outlet } from "react-router-dom";
 
 export default function Index() {
   return (
     <Container>
       <Sidebar />
-      {/* seçao 2 com pedidos */}
+      <section>
+        <Outlet />
+      </section>
     </Container>
   );
 }
