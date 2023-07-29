@@ -1,3 +1,5 @@
+import Head from "../../../components/sidebar/head/HeadTitle";
+
 export default function Burguers() {
-  return <h1>Burguers</h1>;
+  return <Head title="Burguers">Burguers</Head>;
 }

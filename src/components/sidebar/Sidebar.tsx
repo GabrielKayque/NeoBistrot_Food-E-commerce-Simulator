@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import { SidebarContainer } from "./Sidebarstyle";
 
@@ -25,28 +26,28 @@ export default function Sidebar() {
         <nav>
           <ul>
             <li>
-              <a href="#">
+              <NavLink to="/">
                 <BurguerIcon />
                 <span>Hambúrgueres</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="#">
+              <NavLink to="/pizzas">
                 <PizzaIcon />
                 <span>Pizzas</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="#" className="active">
+              <NavLink to="/icecreams">
                 <IceCreamIcon />
                 <span>Sobremesas</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="#">
+              <NavLink to="/sodas">
                 <SodaIcon />
                 <span>Bebidas</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>

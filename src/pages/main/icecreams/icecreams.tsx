@@ -1,3 +1,5 @@
+import Head from "../../../components/sidebar/head/HeadTitle";
+
 export default function IceCreams() {
-  return <h1>IceCreams</h1>;
+  return <Head title="Ice creams">Ice Creams</Head>;
 }

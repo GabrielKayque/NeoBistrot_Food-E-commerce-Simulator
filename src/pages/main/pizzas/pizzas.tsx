@@ -1,3 +1,5 @@
+import Head from "../../../components/sidebar/head/HeadTitle";
+
 export default function Pizzas() {
-  return <h1>Pizzas</h1>;
+  return <Head title="Pizzas">Pizzas</Head>;
 }
