@@ -7,7 +7,7 @@ interface HeadTitleProps {
 }
 
 export default function Head({ title, children }: HeadTitleProps) {
-  document.title = `Food Commerce - ${title}`;
+  document.title = `Neo Bistrot - ${title}`;
 
   return <Title>{children}</Title>;
 }
