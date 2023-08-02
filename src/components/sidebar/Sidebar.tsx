@@ -18,7 +18,7 @@ export default function Sidebar() {
   };
   return (
     <>
-      <SidebarContainer isMenuOpen={menuOpen}>
+      <SidebarContainer $isMenuOpen={menuOpen}>
         <button onClick={toggleMenu}>
           <img src={menuImg} alt="Abrir e fechar o menu" />
         </button>

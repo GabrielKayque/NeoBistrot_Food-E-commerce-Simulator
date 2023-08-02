@@ -1,15 +1,15 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface SidebarContainerProps {
-  isMenuOpen: boolean;
+  $isMenuOpen: boolean;
 }
 
 export const SidebarContainer = styled.aside<SidebarContainerProps>`
   background-color: #E03131;
 
-  ${({ isMenuOpen }) => isMenuOpen
-    ? css`width:16rem`
-    : css`width:7.75rem`
+  width: ${( {$isMenuOpen} ) => $isMenuOpen
+    ? '16rem'
+    : '7.75rem'
   };
 
   padding: 2rem 0;
