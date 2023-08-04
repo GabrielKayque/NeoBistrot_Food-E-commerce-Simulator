@@ -2,12 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: import.meta.env.VITE_BASE_URL as string
 })
 
 export default api
-
-export const getBurguers = () => api.get('/burguers')
-export const getPizzas = () => api.get('/pizzas')
-export const getIcecreams = () => api.get('/icecreams')
-export const getSodas = () => api.get('/sodas')

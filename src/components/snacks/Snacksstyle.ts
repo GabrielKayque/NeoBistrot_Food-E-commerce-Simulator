@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const SnacksContainer = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,auto));
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
   gap: 1.75rem;
+  justify-content: space-between;
 
 
   li {
+    max-width: 500px;
     position: relative;
     border: 1px solid black;
     background-color:#1a1e22;
