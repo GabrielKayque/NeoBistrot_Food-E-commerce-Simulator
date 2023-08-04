@@ -12,7 +12,7 @@ export default function useSnacks(snacktype: string) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       setSnacks(snacksRequest.data);
     })();
-  }, []);
+  }, [snacktype]);
 
   return snacks
 }
