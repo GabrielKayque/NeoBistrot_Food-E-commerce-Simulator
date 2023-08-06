@@ -1,18 +1,13 @@
 import currencyFormat from "../../services/currencyFormat";
 import LoadingSnack from "../loading/LoadingSnack";
 import { SnacksContainer } from "./Snacksstyle";
+import { SnacksProps } from "../../services/interfaces";
 
-interface SnacksProps {
-  snacks: {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    image: string;
-  }[];
+interface SnacksPropsList {
+  snacks: SnacksProps[];
 }
 
-export default function Snacks({ snacks }: SnacksProps) {
+export default function Snacks({ snacks }: SnacksPropsList) {
   return (
     <SnacksContainer>
       {!snacks.length

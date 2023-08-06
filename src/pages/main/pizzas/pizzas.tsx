@@ -1,9 +1,10 @@
 import Snacks from "../../../components/snacks/Snacks";
 import Head from "../../../components/headtitle/HeadTitle";
-import useSnacks from "../../../services/useSnacks";
+import { useContext } from "react";
+import { SnackContext } from "../../../services/context";
 
 export default function Pizzas() {
-  const data = useSnacks("pizzas");
+  const { pizzas: data } = useContext(SnackContext);
 
   return (
     <>

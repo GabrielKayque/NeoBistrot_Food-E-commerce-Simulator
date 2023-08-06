@@ -1,9 +1,10 @@
 import Head from "../../../components/headtitle/HeadTitle";
 import Snacks from "../../../components/snacks/Snacks";
-import useSnacks from "../../../services/useSnacks";
+import { useContext } from "react";
+import { SnackContext } from "../../../services/context";
 
 export default function Burguers() {
-  const data = useSnacks("burguers");
+  const { burguers: data } = useContext(SnackContext);
 
   return (
     <>
