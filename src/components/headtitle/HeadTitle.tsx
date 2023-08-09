@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 interface HeadTitleProps {
   title: string;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export default function Head({ title, children }: HeadTitleProps) {

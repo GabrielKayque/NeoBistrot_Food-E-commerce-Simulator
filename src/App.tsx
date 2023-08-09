@@ -1,15 +1,17 @@
 import GlobalStyle from "./styles/global";
 import { BrowserRouter } from "react-router-dom";
 import { AppRoutes } from "./routes";
-import { SnackProvider } from "./services/context";
+import { CartProvider, SnackProvider } from "./services/context";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <SnackProvider>
-          <GlobalStyle />
-          <AppRoutes />
+          <CartProvider>
+            <GlobalStyle />
+            <AppRoutes />
+          </CartProvider>
         </SnackProvider>
       </BrowserRouter>
     </>

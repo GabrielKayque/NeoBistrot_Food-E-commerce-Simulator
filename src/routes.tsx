@@ -5,6 +5,7 @@ import PizzasPage from "./pages/main/pizzas/pizzas";
 import SodasPage from "./pages/main/sodas/sodas";
 import IceCreamsPage from "./pages/main/icecreams/icecreams";
 
+import CartPage from "./pages/cart/cart";
 export function AppRoutes() {
   return (
     <Routes>
@@ -14,6 +15,7 @@ export function AppRoutes() {
         <Route path="icecreams" element={<IceCreamsPage />} />
         <Route path="sodas" element={<SodasPage />} />
       </Route>
+      <Route path="cart" element={<CartPage />} />
     </Routes>
   );
 }

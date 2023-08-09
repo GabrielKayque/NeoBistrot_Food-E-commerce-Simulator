@@ -11,7 +11,12 @@ export const Container = styled.main`
     width: 100%;
     height: 100vh;
     padding: 2rem 2rem;
-    overflow-y:auto;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     img {
       width: 10rem;
       margin-bottom: 2rem;

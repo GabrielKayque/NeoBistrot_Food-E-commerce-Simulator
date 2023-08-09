@@ -62,6 +62,22 @@ export const SnacksContainer = styled.ul`
       &:hover {
         background-color: #7a1212;
       }
+
+    }
+
+    span {
+      position: absolute;
+      left: -0.5rem;
+      top: -0.5rem;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: #E03131;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.15rem;
     }
   }
 `

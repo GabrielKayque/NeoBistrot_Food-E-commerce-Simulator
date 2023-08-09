@@ -17,14 +17,6 @@ export const Title = styled.h1`
     align-items: center;
     justify-content: flex-start;
 
-    &::before {
-      content:'';
-      background-color: white;
-      width: 42px;
-      height: 5px;
-      flex-shrink: 0;
-      border-radius: 4px;
-    }
   }
 
 `
