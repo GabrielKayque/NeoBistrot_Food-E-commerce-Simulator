@@ -4,6 +4,7 @@ export const OrderHeaderContainer = styled.header`
 display: flex;
 justify-content:  space-between;
 align-items:center;
+padding-bottom: 2rem;
 
 img {
   width: 8rem;
