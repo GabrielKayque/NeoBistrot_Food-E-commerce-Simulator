@@ -34,18 +34,10 @@ interface SnackCart extends SnacksProps {
 interface CartContextProps {
   cart: SnackCart[];
   addSnack: (snack: SnacksProps) => void;
-  // TODO: Impementar corretamente as funçoes!
-  //removeSnack: ({ id, snack }: { id: number; snack: string }) => void;
-  // updateSnack: ({
-  //   id,
-  //   snack,
-  //   newQuantity,
-  // }: {
-  //   id: number;
-  //   snack: string;
-  //   newQuantity: number;
-  // }) => void;
-  // clearCart: () => void;
+  deleteSnack: (snack: SnacksProps) => void;
+
+  incrementSnack: (snack: SnackCart) => void;
+  decrementSnack: (snack: SnackCart) => void;
 }
 
 export const CartContext = createContext({} as CartContextProps);
@@ -53,7 +45,7 @@ export const CartContext = createContext({} as CartContextProps);
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState<SnackCart[]>([]);
 
-  function addSnack(snack: SnacksProps): void {
+  function addSnack(snack: SnacksProps) {
     const snackAlreadyExist = cart.find((item) => item.name === snack.name);
 
     if (snackAlreadyExist) {
@@ -66,9 +58,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         }
         return item;
       });
-      setCart(newCart);
-      console.log(newCart);
-      return;
+      return setCart(newCart);
     }
 
     const newSnack = { ...snack, quantity: 1, subtotal: snack.price };
@@ -76,14 +66,41 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setCart(newCart);
   }
 
+  function deleteSnack(snack: SnacksProps) {
+    const newCart = cart.filter((item) => !(item.name === snack.name));
+    setCart(newCart);
+  }
+
+  function updateSnack(snack: SnackCart, newQuantity: number) {
+    if (newQuantity == 0) return;
+
+    const newCart = cart.map((item) => {
+      if (item.name !== snack.name) return item;
+
+      return {
+        ...item,
+        quantity: newQuantity,
+        subtotal: newQuantity * snack.price,
+      };
+    });
+    setCart(newCart);
+  }
+
+  function incrementSnack(snack: SnackCart) {
+    updateSnack(snack, snack.quantity + 1);
+  }
+  function decrementSnack(snack: SnackCart) {
+    updateSnack(snack, snack.quantity - 1);
+  }
+
   return (
     <CartContext.Provider
       value={{
         cart,
         addSnack,
-        // removeSnack: () => {},
-        // updateSnack: () => {},
-        // clearCart: () => {},
+        deleteSnack,
+        incrementSnack,
+        decrementSnack,
       }}
     >
       {children}

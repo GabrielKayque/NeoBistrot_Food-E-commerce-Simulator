@@ -65,10 +65,12 @@ export const TableContainer = styled.main`
           align-items: center;
           justify-content: center;
 
-          img {
+          svg {
             width: 1.8rem;
             height: 1.8rem;
+            fill: yellow;
           }
+
         }
       }
 
@@ -79,6 +81,20 @@ export const TableContainer = styled.main`
       &:nth-child(3),
       &:nth-child(4) {
         width: 11rem;
+      }
+
+      &:last-child{
+        button {
+          background: none;
+          border: none;
+
+        }
+
+        svg {
+          width: 1.8rem;
+          height: 1.8rem;
+          fill: #e03131;
+        }
       }
     }
   }

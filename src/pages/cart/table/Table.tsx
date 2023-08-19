@@ -1,11 +1,12 @@
+import ConfirmOrder from "../../../components/confirmorder/ConfirmOrder";
 import currencyFormat from "../../../services/currencyFormat";
 import { useCart } from "../../../services/hooks/useCart";
 import { TableContainer } from "./Tablestyle";
-import plusImg from "../../../assets/plus.png";
-import minusImg from "../../../assets/minus.png";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+import { BsTrash } from "react-icons/bs";
 
 function Table() {
-  const { cart } = useCart();
+  const { cart, decrementSnack, incrementSnack, deleteSnack } = useCart();
 
   return (
     <TableContainer>
@@ -31,23 +32,28 @@ function Table() {
               </td>
               <td>
                 <div>
-                  <button onClick={() => console.log("decrementou", item)}>
-                    <img src={minusImg} alt="decrementar" />
+                  <button onClick={() => decrementSnack(item)}>
+                    <AiOutlineMinusCircle />
                   </button>
                   <span>{`${item.quantity}`.padStart(2, "0")}</span>
-                  <button onClick={() => console.log("incrementou", item)}>
-                    <img src={plusImg} alt="incrementar" />
+                  <button onClick={() => incrementSnack(item)}>
+                    <AiOutlinePlusCircle />
                   </button>
                 </div>
               </td>
               <td>
                 <h5>{currencyFormat(item.subtotal)}</h5>
               </td>
-              <td>Deletar</td>
+              <td>
+                <button onClick={() => deleteSnack(item)}>
+                  <BsTrash />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <ConfirmOrder />
     </TableContainer>
   );
 }
