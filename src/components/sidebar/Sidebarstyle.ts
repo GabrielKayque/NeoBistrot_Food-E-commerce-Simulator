@@ -5,7 +5,7 @@ interface SidebarContainerProps {
 }
 
 export const SidebarContainer = styled.aside<SidebarContainerProps>`
-  background-color: #E03131;
+  background-color: ${({ theme }) => theme.colors.red};
 
   width: ${( {$isMenuOpen} ) => $isMenuOpen
     ? '16rem'
@@ -68,7 +68,7 @@ export const SidebarContainer = styled.aside<SidebarContainerProps>`
             left: 0;
             transform: translate(-50%);
 
-            background-color: #FCC419;
+            background-color: ${({ theme }) => theme.colors.yellow};
             width: 7px;
             height: calc(100% + 0.5rem);
 
@@ -76,11 +76,11 @@ export const SidebarContainer = styled.aside<SidebarContainerProps>`
           }
 
           svg {
-            fill: #FCC419;;
+            fill: ${({ theme }) => theme.colors.yellow};;
           }
 
           span {
-            color: #FCC419
+            color: ${({ theme }) => theme.colors.yellow}
           }
 
         }

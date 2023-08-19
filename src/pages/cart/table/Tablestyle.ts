@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TableContainer = styled.main`
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.black};
   padding: 2rem 2.5rem;
   border-radius: 8px;
 
@@ -27,7 +27,7 @@ export const TableContainer = styled.main`
 
     td {
       padding: 1.5rem 1rem;
-      border-top: 3px solid #1a1e22;
+      border-top: 3px solid ${({ theme }) => theme.colors.primary};
 
       &:first-child {
         width: 7.5rem;
@@ -68,7 +68,7 @@ export const TableContainer = styled.main`
           svg {
             width: 1.8rem;
             height: 1.8rem;
-            fill: yellow;
+            fill: ${({ theme }) => theme.colors.red};
           }
 
         }
@@ -93,7 +93,7 @@ export const TableContainer = styled.main`
         svg {
           width: 1.8rem;
           height: 1.8rem;
-          fill: #e03131;
+          fill: ${({ theme }) => theme.colors.yellow};
         }
       }
     }

@@ -1,3 +1,4 @@
+import { Theme } from "./styles/Theme";
 import GlobalStyle from "./styles/global";
 import { BrowserRouter } from "react-router-dom";
 import { AppRoutes } from "./routes";
@@ -7,12 +8,14 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <SnackProvider>
-          <CartProvider>
-            <GlobalStyle />
-            <AppRoutes />
-          </CartProvider>
-        </SnackProvider>
+        <Theme>
+          <SnackProvider>
+            <CartProvider>
+              <GlobalStyle />
+              <AppRoutes />
+            </CartProvider>
+          </SnackProvider>
+        </Theme>
       </BrowserRouter>
     </>
   );

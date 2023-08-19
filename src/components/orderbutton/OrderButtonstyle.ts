@@ -6,7 +6,7 @@ export const OrderButtonContainer = styled(Link)`
   right: 1.5rem;
   bottom: 0.5rem;
 
-  background-color: #E03131;
+  background-color: ${({ theme }) => theme.colors.red};
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 
@@ -15,7 +15,7 @@ export const OrderButtonContainer = styled(Link)`
   gap: 0.5rem;
 
   &:hover {
-    background-color: #7a1212;
+    background-color: ${({ theme }) => theme.colors.darkRed};
   }
 
   span:first-child {
@@ -33,6 +33,6 @@ export const OrderButtonContainer = styled(Link)`
     margin-left: 0.75rem;
     font-weight: 500;
     font-size: 1.5rem;
-    color: #FCC419;
+    color: ${({ theme }) => theme.colors.yellow};
   }
 `

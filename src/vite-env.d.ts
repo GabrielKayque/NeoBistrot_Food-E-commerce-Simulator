@@ -6,3 +6,19 @@ declare module '*.svg' {
   const src: string
   export default src
 }
+
+import 'styled-components'
+
+declare module 'styled-components' {
+  export interface DefaultTheme {
+
+    colors: {
+      primary: string
+      red: string
+      darkRed: string
+      yellow: string
+      black: string
+      white: string
+    }
+  }
+}

@@ -10,7 +10,7 @@ export const SnacksContainer = styled.ul`
     max-width: 500px;
     position: relative;
     border: 1px solid black;
-    background-color:#1a1e22;
+    background-color:${({ theme }) => theme.colors.primary};
     padding: 1.7rem 1.5rem;
     border-radius: 10px;
     box-shadow: 1px 1px 10px black;
@@ -54,13 +54,13 @@ export const SnacksContainer = styled.ul`
       width: 3rem;
       height: 3rem;
       border-radius: 50%;
-      background-color: #E03131;
+      background-color: ${({ theme }) => theme.colors.red};
       border: none;
       font-size: 2.5rem;
-      color: white;
+      color: ${({ theme }) => theme.colors.white};
 
       &:hover {
-        background-color: #7a1212;
+        background-color: ${({ theme }) => theme.colors.darkRed};
       }
 
     }
@@ -72,7 +72,7 @@ export const SnacksContainer = styled.ul`
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
-      background-color: #E03131;
+      background-color: ${({ theme }) => theme.colors.red};
       display: flex;
       justify-content: center;
       align-items: center;

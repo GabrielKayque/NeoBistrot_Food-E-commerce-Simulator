@@ -22,11 +22,11 @@ img {
     h3 {
       margin-bottom: 0.125rem;
       font-weight: 500;
-      color: white;
+      color: ${({ theme }) => theme.colors.white};
     }
 
     span {
-      color: #FCC419;
+      color: ${({ theme }) => theme.colors.yellow};
 
       strong {
         font-weight: 500;

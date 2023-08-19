@@ -6,7 +6,7 @@ export const LoadingContainer = styled.li`
   width: 100%;
   max-width: 500px;
   border: 1px solid black;
-  background-color:#1a1e22;
+  background-color:${({ theme }) => theme.colors.primary};
   padding: 1rem 1rem;
   border-radius: 10px;
   box-shadow: 1px 1px 10px black;

@@ -8,7 +8,7 @@ export const Container = styled.footer`
   justify-content: space-between;
 
   button {
-    background: #e03131;
+    background: ${({ theme }) => theme.colors.red};
     width: min(100%, 16.5rem);
     min-height: 4rem;
     border-radius: 8px;
@@ -16,12 +16,12 @@ export const Container = styled.footer`
     font-weight: 700;
     font-size: 1.25rem;
     text-transform: uppercase;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
 
     transition: background 0.3s;
 
     &:hover {
-      background: #7a1212;
+      background: ${({ theme }) => theme.colors.darkRed};
     }
   }
 
