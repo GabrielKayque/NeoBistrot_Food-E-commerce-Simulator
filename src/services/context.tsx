@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { SnacksProps } from "./interfaces";
 import useSnacks from "./hooks/useSnacks";
+import { useNavigate } from "react-router-dom";
 
 // ========== Context Snacks ==========
 interface SnackContextProps {
@@ -35,14 +36,15 @@ interface CartContextProps {
   cart: SnackCart[];
   addSnack: (snack: SnacksProps) => void;
   deleteSnack: (snack: SnacksProps) => void;
-
   incrementSnack: (snack: SnackCart) => void;
   decrementSnack: (snack: SnackCart) => void;
+  confirmOrder: () => void;
 }
 
 export const CartContext = createContext({} as CartContextProps);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
+  const navigate = useNavigate();
   const [cart, setCart] = useState<SnackCart[]>([]);
 
   function addSnack(snack: SnacksProps) {
@@ -93,6 +95,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     updateSnack(snack, snack.quantity - 1);
   }
 
+  function confirmOrder() {
+    navigate("/pagamento");
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -101,6 +107,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         deleteSnack,
         incrementSnack,
         decrementSnack,
+        confirmOrder,
       }}
     >
       {children}
