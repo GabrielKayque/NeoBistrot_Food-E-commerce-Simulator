@@ -142,10 +142,9 @@ export const TableMobile = styled.main`
         margin: 0.8rem 0;
 
         span {
-          background-color: green;
           display: block;
-          background-color: ${({ theme }) => theme.colors.white};
-          color: ${({ theme }) => theme.colors.black};
+          background-color: ${({ theme }) => theme.colors.black};
+          color: ${({ theme }) => theme.colors.white};
           padding: 0.125rem 0.75rem;
           border-radius: 4px;
 

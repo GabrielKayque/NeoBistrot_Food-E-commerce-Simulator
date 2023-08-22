@@ -6,6 +6,7 @@ import { useCart } from "../../services/hooks/useCart";
 
 function OrderHeader() {
   const { cart } = useCart();
+  const totalLanches = cart.reduce((acc, item) => (acc += item.quantity), 0);
 
   return (
     <OrderHeaderContainer>
@@ -16,7 +17,7 @@ function OrderHeader() {
         <div>
           <h3>Meus Pedidos</h3>
           <span>
-            <strong>{cart.length}</strong> lanche(s)
+            <strong>{totalLanches}</strong> lanche(s)
           </span>
         </div>
         <CartIcon />
