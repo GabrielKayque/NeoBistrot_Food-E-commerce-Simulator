@@ -99,3 +99,114 @@ export const TableContainer = styled.main`
     }
   }
 `
+export const TableMobile = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .table-mobile {
+    background-color: ${({ theme }) => theme.colors.black};
+    border: 1px solid ${({ theme }) => theme.colors.primary};
+    padding: 1.75rem 1.5rem;
+    border-radius: 8px;
+
+    div img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      padding-bottom: 1rem;
+    }
+
+    >div:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h4 {
+        margin-bottom: 0.5rem;
+        font-weight: 400;
+        font-size: 1.75rem;
+      }
+
+      > span {
+        font-weight: 700;
+        font-size:2rem;
+      }
+
+
+      div {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin: 0.8rem 0;
+
+        span {
+          background-color: green;
+          display: block;
+          background-color: ${({ theme }) => theme.colors.white};
+          color: ${({ theme }) => theme.colors.black};
+          padding: 0.125rem 0.75rem;
+          border-radius: 4px;
+
+          font-weight: 500;
+          font-size: 1.5rem;
+        }
+
+
+        div {
+          flex-shrink: 0;
+          gap: 0.5rem;
+
+          button {
+            background: none;
+            flex: 0;
+            border: none;
+
+            display: flex;
+            align-items:center;
+            justify-content:center;
+
+            svg {
+              fill: ${({ theme }) => theme.colors.red};
+            }
+          }
+        }
+
+        button {
+          background: none;
+          border: none;
+
+          svg {
+
+            fill: ${({ theme }) => theme.colors.yellow};
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+      }
+
+      h5 {
+       span {
+        display: block;
+        font-size: 1.75rem;
+        font-weight: 400;
+       }
+
+       font-weight: 700;
+       font-size: 2rem;
+      }
+    }
+    @media( min-width:480px){
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap:1.5rem;
+
+      div {
+        padding-left: 0;
+        img {
+        padding-bottom: 0rem;
+      }}
+    }
+  }
+`

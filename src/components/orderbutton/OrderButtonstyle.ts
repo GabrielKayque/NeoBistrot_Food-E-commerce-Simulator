@@ -35,4 +35,15 @@ export const OrderButtonContainer = styled(Link)`
     font-size: 1.5rem;
     color: ${({ theme }) => theme.colors.yellow};
   }
+
+  @media (max-width: 720px) {
+    top: 0.5rem;
+    bottom: auto;
+    gap: 0rem;
+
+    span:first-child {
+      display: none;
+    }
+
+  }
 `
