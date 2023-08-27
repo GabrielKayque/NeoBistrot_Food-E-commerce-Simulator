@@ -7,11 +7,9 @@ export default function useSnacks(snacktype: string) {
   const [snacks, setSnacks] = useState<SnacksProps[]>([]);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    (async () => {
+    void (async () => {
       const snacksRequest = await api.get(`/${snacktype}`);
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      setSnacks(snacksRequest.data);
+      setSnacks(snacksRequest.data as SnacksProps[]);
     })();
   }, [snacktype]);
 
