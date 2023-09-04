@@ -3,6 +3,7 @@ import { SnacksProps } from './interfaces';
 import useSnacks from './hooks/useSnacks';
 import { useNavigate } from 'react-router-dom';
 
+import { PaymentUserFormProps as CustomerData } from '../pages/pagamento/paymentUserFormValidation';
 // ========== Context Snacks ==========
 interface SnackContextProps {
 	burguers: SnacksProps[];
@@ -39,7 +40,7 @@ interface CartContextProps {
 	incrementSnack: (snack: SnackCart) => void;
 	decrementSnack: (snack: SnackCart) => void;
 	confirmOrder: () => void;
-	paymentOrder: () => void;
+	paymentOrder: (customer: CustomerData) => void;
 }
 
 export const CartContext = createContext({} as CartContextProps);
@@ -99,8 +100,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 	function confirmOrder() {
 		navigate('/pagamento');
 	}
-	function paymentOrder() {
-		navigate('/cart');
+	function paymentOrder(data: CustomerData) {
+		console.log('Itens', cart, 'Cliente', data);
 	}
 
 	return (

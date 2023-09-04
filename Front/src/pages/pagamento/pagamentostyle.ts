@@ -24,6 +24,11 @@ export const Form = styled.form`
     }
   }
 
+  .error {
+    color: ${({ theme }) => theme.colors.red};
+    font-size: 0.8rem;
+  }
+
   .grouped {
     flex-grow:1;
 
