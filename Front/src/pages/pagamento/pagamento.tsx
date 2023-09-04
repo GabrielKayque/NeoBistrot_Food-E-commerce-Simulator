@@ -259,6 +259,7 @@ function Pagamento() {
 										id='credit-card-expiration'
 										autoComplete='cc-exp'
 										mask={[
+											// @ts-ignore typescript doesn't recognize this as a valid mask
 											{
 												mask: 'MM/YY',
 												blocks: {
