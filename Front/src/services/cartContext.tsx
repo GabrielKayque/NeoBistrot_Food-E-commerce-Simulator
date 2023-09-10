@@ -1,38 +1,12 @@
 import { createContext, useState } from 'react';
 import { SnacksProps } from './interfaces';
-import useSnacks from './hooks/useSnacks';
 import { useNavigate } from 'react-router-dom';
-
 import { PaymentUserFormProps as CustomerData } from '../pages/pagamento/paymentUserFormValidation';
-// ========== Context Snacks ==========
-interface SnackContextProps {
-	burguers: SnacksProps[];
-	pizzas: SnacksProps[];
-	sodas: SnacksProps[];
-	icecreams: SnacksProps[];
-}
 
-export const SnackContext = createContext({} as SnackContextProps);
-
-export const SnackProvider = ({ children }: { children: React.ReactNode }) => {
-	const burguers = useSnacks('burguers');
-	const pizzas = useSnacks('pizzas');
-	const sodas = useSnacks('sodas');
-	const icecreams = useSnacks('icecreams');
-
-	return (
-		<SnackContext.Provider value={{ burguers, pizzas, sodas, icecreams }}>
-			{children}
-		</SnackContext.Provider>
-	);
-};
-
-// ======== Context Cart ========
 interface SnackCart extends SnacksProps {
 	quantity: number;
 	subtotal: number;
 }
-
 interface CartContextProps {
 	cart: SnackCart[];
 	addSnack: (snack: SnacksProps) => void;
@@ -47,7 +21,18 @@ export const CartContext = createContext({} as CartContextProps);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 	const navigate = useNavigate();
-	const [cart, setCart] = useState<SnackCart[]>([]);
+
+	const localStorageKey = '@NeoBistrotCart';
+	const [cart, setCart] = useState<SnackCart[]>(() => {
+		const value = localStorage.getItem(localStorageKey);
+		if (value) return JSON.parse(value) as SnackCart[];
+		return [];
+	});
+
+	function saveCart(items: SnackCart[]) {
+		setCart(items);
+		localStorage.setItem(localStorageKey, JSON.stringify(items));
+	}
 
 	function addSnack(snack: SnacksProps) {
 		const snackAlreadyExist = cart.find((item) => item.name === snack.name);
@@ -62,17 +47,17 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 				}
 				return item;
 			});
-			return setCart(newCart);
+			return saveCart(newCart);
 		}
 
 		const newSnack = { ...snack, quantity: 1, subtotal: snack.price };
 		const newCart = [...cart, newSnack];
-		setCart(newCart);
+		saveCart(newCart);
 	}
 
 	function deleteSnack(snack: SnacksProps) {
 		const newCart = cart.filter((item) => !(item.name === snack.name));
-		setCart(newCart);
+		saveCart(newCart);
 	}
 
 	function updateSnack(snack: SnackCart, newQuantity: number) {
@@ -87,7 +72,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 				subtotal: newQuantity * snack.price,
 			};
 		});
-		setCart(newCart);
+		saveCart(newCart);
 	}
 
 	function incrementSnack(snack: SnackCart) {
@@ -102,6 +87,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 	}
 	function paymentOrder(data: CustomerData) {
 		console.log('Itens', cart, 'Cliente', data);
+		localStorage.removeItem(localStorageKey);
 	}
 
 	return (
